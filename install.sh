@@ -60,26 +60,6 @@ cat >/mnt/etc/nixos/configuration.nix <<EOF
   boot.zfs.devNodes = "/dev";
   boot.zfs.mirroredBoots = false;
 
-  fileSystems."/" = {
-    device = "$POOL/root";
-    fsType = "zfs";
-  };
-
-  fileSystems."/nix" = {
-    device = "$POOL/nix";
-    fsType = "zfs";
-  };
-
-  fileSystems."/home" = {
-    device = "$POOL/home";
-    fsType = "zfs";
-  };
-
-  fileSystems."/boot" = {
-    device = "$DISK"1;
-    fsType = "vfat";
-  };
-
   services.openssh.enable = true;
   users.users.root.initialPassword = "nixos";
 }
